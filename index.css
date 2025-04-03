@@ -13,6 +13,9 @@ body{
    
     background-color: var(--primary-bg);
 }
+/***** navigation *****/ 
+
+
 
 nav{
     display: flex;
@@ -50,6 +53,56 @@ nav ul li a:hover{
     color: var(--secondary-bg);
     background-color: var(--accent-color);
 }
+.hamburger{
+    display: none;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Mobile Responsive Navbar */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        margin: 50px;
+        margin-left:auto;
+    }
+
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(249, 249, 249, 0.9);
+        width: 100%;
+        position: absolute;
+        top: 36px;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 999;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+/***** End navigation *****/
+
+
 /*Hero*/
 header{
     padding: 20px;
@@ -93,7 +146,9 @@ section{
         transform: translateY(0);
     }
 }
-.live{
+
+
+.div-content{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -101,12 +156,10 @@ section{
     gap: 20px;
     height: auto;
     max-height: 1200px;
-    
-
 }
-.land{
+.div-content-card{
     background-color:white;
-    width: calc(20% - 5px);
+    width: calc(35% - 5px);
     padding: 20px;
     text-align: center;
     margin-top: 9px;
@@ -116,12 +169,9 @@ section{
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
     position: relative;
-    animation: mymove 5s infinite;
-    
-
 }
 
-.land:hover{
+.div-content-card:hover{
     transform: translateY(-5px);
     box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
 }
@@ -166,6 +216,51 @@ table tfoot td{
     justify-content: center;
 }
 
+/***** card *****/ 
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:4rem;
+    padding: 2rem;
+background-color:#fff;
+box-shadow: 0 4px 15px rgba(0,100,0,0.2);
+max-width: 1200px;
+border-radius: 10px;
+margin: auto;
+}
+.card__img{
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.card__title{
+margin: 0;
+padding: 12px;
+align-items: center;
+
+}
+.card p::first-line{
+    color: red;
+}
+
+
+.card__btn{
+    padding: 10px 20px;
+    background-color: #fff;
+    color:black;
+    border: transparent;
+    cursor: pointer;
+}
+.card__btn:hover{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+/***** End card *****/
+
+
+/***** iframe audio *****/  
 .audiosec{
     display: flex;
     flex-direction: column;
@@ -193,6 +288,10 @@ margin: auto;
     max-width: 100%;
     padding: 5px;
 }
+
+/***** End iframe audio *****/
+
+
 
 
 /*footer*/
@@ -269,10 +368,14 @@ footer form button:hover{
     box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
     background-color: var(--accent-color);
     color: #9ACBD0;
+    cursor: pointer;
 }
 
 /*Media Query*/
 @media screen and (max-width: 768px){
+    header{
+        height: auto;
+    }
     header h1{
         font-size: 30px;
     }
@@ -292,6 +395,12 @@ footer form button:hover{
     }
     .land{
         width:auto;
+    }
+    form{
+        width: 350px;
+    }
+    footer p{
+        font-size: 12px;
     }
 }
 @media screen and (max-width: 460px){
@@ -340,3 +449,16 @@ footer form button:hover{
     }
 }
 
+@media screen and (max-width: 768px) {
+  
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+}
+.card__btn{
+    width: 150px;
+}
+}
